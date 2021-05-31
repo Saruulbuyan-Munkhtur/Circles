@@ -1,0 +1,206 @@
+// SCSS CODE THAT I WROTE AND UNDERSTAND
+
+@mixin link-styling($link_text_color, $link_hover_color, $link_visited_color) {
+  color: $link_text_color;
+  font-size: inherit;
+  border: none;
+  text-decoration: none;
+  font-weight: inherit;
+  transition:all .5s;
+  letter-spacing: inherit;
+
+ 
+
+  &:visited {
+    //color: #353634;
+    color: $link_visited_color;
+    text-decoration: underline;
+  }
+  &:hover {
+    color: $link_hover_color;
+  }
+  &:active {
+    color: $link_text_color;
+  }
+}
+
+// SCSS CODE THAT I'M NOT SURE ABOUT
+
+@keyframes shadow-drop-2-center {
+  0% {
+    transform: translateZ(0);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+  100% {
+    transform: translateZ(50px);
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+  }
+}
+
+
+
+@mixin  btn-background($btn-background) {
+  @extend %btn;
+  background-color: $btn-background;
+  &:hover {
+      background-color: lighten($btn-background,7%);
+  }
+}
+
+
+
+@mixin box($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin font-size($size, $base: 16) {
+  font-size: $size; // fallback for old browsers
+  font-size: ($size / $base) * 1rem;
+}
+
+
+@mixin screen($size) {
+    $desktop: "(min-width: 1024px)";
+    $tablet: "(min-width: 768px) and (max-width: 1023px)";
+    $mobile: "(max-width: 767px)";
+    @if $size == desktop {
+      @media only screen and #{$desktop} {
+        @content;
+      }
+    }
+    @else if $size == tablet {
+      @media only screen and #{$tablet} {
+        @content;
+      }
+    }
+    @else if $size == mobile {
+      @media only screen and #{$mobile} {
+        @content;
+      }
+    }
+    @else {
+      @media only screen and #{$size} {
+        @content;
+      }
+    }
+  }
+
+
+  @mixin flex-column {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  @mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  @mixin flex-center-column {
+    @include flex-center;
+    flex-direction: column;
+  }
+  
+  @mixin flex-center-vert {
+    display: flex;
+    align-items: center;
+  }
+  
+  @mixin flex-center-horiz {
+    display: flex;
+    justify-content: center;
+  }
+
+  @mixin font-size($font-size, $line-height: normal, $letter-spacing: normal) {
+    font-size: $font-size * 1px;
+    // font-size: $font-size * 0.1rem;
+    // example using rem values and 62.5% font-size so 1rem = 10px
+  
+    @if $line-height==normal {
+      line-height: normal;
+    } @else {
+      line-height: $line-height / $font-size;
+    }
+  
+    @if $letter-spacing==normal {
+      letter-spacing: normal;
+    } @else {
+      letter-spacing: #{$letter-spacing / $font-size}em;
+    }
+  }
+
+  @mixin cover-background {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  @mixin pseudo(
+  $width: 100%,
+  $height: 100%,
+  $display: inline-block,
+  $pos: absolute,
+  $content: ""
+) {
+  content: $content;
+  display: $display;
+  position: $pos;
+  @include box($width, $height);
+}
+
+
+@mixin fade($type) {
+  @if $type== "hide" {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 1s, opacity 1s;
+  } @else if $type== "show" {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 1s, opacity 1s;
+  }
+}
+
+@mixin skew-background-transition($initial, $hover, $inverted: false) {
+  background: linear-gradient(
+    90deg,
+    $hover 0%,
+    $hover 50%,
+    $initial 50%,
+    $initial 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 200% 100%;
+
+  background-position: right bottom;
+  @if $inverted {
+    background-position: left bottom;
+  }
+  transition: background-position 0.25s ease-out;
+
+  &:hover {
+    background-position: left bottom;
+    @if $inverted {
+      background-position: right bottom;
+    }
+  }
+}
+
+@mixin responsive-ratio($x,$y, $pseudo: false) {
+  $padding: unquote( ( $y / $x ) * 100 + '%' );
+  @if $pseudo {
+      &:before {
+          @include pseudo($pos: relative);
+          width: 100%;
+          padding-top: $padding;
+      }
+  } @else {
+      padding-top: $padding;
+  }
+}
+
+@mixin shadow {
+  box-shadow: 0 3px 7px -1px rgba(#000, .1);
+}

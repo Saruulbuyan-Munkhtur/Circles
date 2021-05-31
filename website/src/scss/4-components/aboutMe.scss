@@ -1,0 +1,55 @@
+.aboutMe-body {
+  background-color: #f7f7f7;
+  border-bottom: 1px solid #e4e4e4;
+  padding: 85px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+}
+
+
+.aboutMe-title {
+  padding-bottom: 3vh;
+  h1 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 300;
+    line-height: 1.2;
+    letter-spacing: 1px;
+  }
+  h2 {
+    margin: 0;
+    padding: 1em 0 0 0;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    opacity: .7;
+  }
+}
+
+.aboutMe-content {
+  p {
+    font-size: 16px;
+  }
+}
+
+.aboutMe-photo {
+  align-self: center;
+}
+
+.aboutMe-image {
+  border-radius: 70px;
+  border: 2px solid aqua;
+  &:hover {
+      transform: scale(1.05); 
+    }
+}
+
+.aboutMe-icons {
+  width: 100%;
+  margin: 1em 0;
+}

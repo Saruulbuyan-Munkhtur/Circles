@@ -1,0 +1,16 @@
+.topics {
+  width: 80%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  align-content: space-around;
+  justify-content: center;
+  text-decoration: none;
+  a {
+  text-decoration: none;
+  @include btn-background($secondary_blue);
+  text-decoration: none;
+  //flex: 1 1 200px;
+  flex: 0 1 100px;
+  }
+}

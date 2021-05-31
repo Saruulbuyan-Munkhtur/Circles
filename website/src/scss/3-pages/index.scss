@@ -1,0 +1,68 @@
+.homePage-landing {
+  align-self: center;
+  //text-align: center;
+  position: relative;
+  z-index: 1;
+  margin: auto;
+  //text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0vh;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  height: 100vh;
+  width: 100vw;
+  background: radial-gradient(ellipse at bottom, #f0e371 0%, #dbe08a 100%);
+  overflow: hidden;
+}
+
+.homePage-quotes {
+  height: 50vh;
+
+  background-color: #fefefe;
+  @media (min-width: $phone_width) {
+    padding-top: 10vh;
+  }
+}
+.homePage-skills {
+
+  margin-top: 10vh;
+  margin-bottom: 30vh;
+
+  @media(min-width: 700px){
+    margin-top: 50vh;
+  }
+}
+
+h1.splitting {
+  color: saturate(lighten(#182952, 55%), 60%);
+  .char {
+    transition: transform 0.3s cubic-bezier(0.3, 0, 0.3, 1), opacity 0.3s linear;
+    transition-delay: calc(20ms * var(--char-index));
+  }
+
+  &[data-scroll='out'] .char {
+    opacity: 0.1;
+    transform: translateY(0.25em);
+  }
+}
+
+/* ---------------------------------- */
+.page {
+  max-width: 30em;
+  margin: auto;
+  overflow: hidden;
+}
+
+// .backgroundImage {
+//   width: 100%;
+//   background-position: bottom center;
+//   background-repeat: repeat-y;
+//   background-size: cover;
+// .Pic {
+//   max-width:500;
+//   flex: 1;
+//   border-radius: 50px
+// }
+//}

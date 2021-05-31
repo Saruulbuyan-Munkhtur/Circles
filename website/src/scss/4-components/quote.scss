@@ -1,0 +1,80 @@
+.quote-body {
+  font-family: 'Yrsa', Times New Roman, serif;
+  height: 100%;
+  width: clamp(300px, 80%, 700px);
+  margin: auto;
+  align-self: center;
+  align-items: center;
+  display: flex;
+  border-radius: 60px;
+  @media(min-width: 700px) {
+    font-size: 1.5rem;
+  }
+}
+
+.quote-carousel {
+  width: clamp(340px, 70vw, 1000px);
+  height: clamp(300px, 100%, 500px);
+  margin: auto;
+  background-color: $prime_05;
+  opacity: 0,7;
+  border-radius: 60px;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+.quotes-section {
+  // background-color: #e4e4e4;
+  font-family: 'Montserrat', sans-serif;
+  align-self: center;
+  margin: auto;
+  width: clamp(350px, 70vw, 1000px);
+  text-align: center;
+}
+
+.quote-content {
+  // border-top: 2px solid $prime_green;
+  // text-align: left;
+  // font-size: 12pt;
+  justify-self: center;
+  margin: auto;
+  width: 80%;
+  padding: auto;
+  color: $black_03;
+}
+
+.slide {
+  background-color: $prime_03 !important;
+  // height: clamp(200px, 100%, 500px);
+  height: 300px;
+  border-radius: 60px;
+  border-left: solid black 20px;
+  @media(min-width: 700px) {
+    height: 500px;
+  }
+}
+
+.quote-author {
+  font-style: italic;
+  text-emphasis-style: italic;
+  border-bottom: solid 1px yellow;
+}
+
+.quote-mySubquote {
+  position: absolute;
+  bottom: 5%;
+  right: 3%;
+  font-size: 12px;
+  border: solid 1px $prime_05;
+  border-radius: 10%;
+  font-weight: 550;
+  padding: 1em;
+  font-family: monospace;
+  opacity: 0;
+  width: clamp(300px, 40%, 600px);
+  
+  @media(min-width: 900px) {
+    opacity: 1;
+  }
+}
