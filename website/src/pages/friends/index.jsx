@@ -10,6 +10,7 @@ const FriendsPage = () => {
     <Layout>
       <div>
         <section className="homePage-landing">
+          <h1>Friends</h1>
         </section>
         <section className="homePage-aboutMe">
         </section>

@@ -13,13 +13,7 @@ const ProfilePage = () => {
         </section>
         <section className="homePage-aboutMe">
         </section>
-        <section className="homePage-quotes">
-        </section>
-        <section className="homePage-skills">
-        </section>
-        <section className="homePage-articles">
-          <h1 className="blogList-title">Friends</h1>
-        </section>
+      
       </div>
     </Layout>
   )

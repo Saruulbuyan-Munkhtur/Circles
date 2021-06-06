@@ -1,0 +1,15 @@
+.sign-up {
+  display: flex;
+  flex-direction: column;
+  width: clamp(300px, 30vw, 500px);
+  height: clamp(300px, 40vh, 500px);
+  justify-content: center;
+  text-align: center;
+  padding-bottom: 5vh;
+  padding-top: 5vh;
+
+  .title {
+    margin: 10px 0;
+  }
+  
+}

@@ -9,11 +9,11 @@
   justify-content: center;
   align-items: center;
   margin-top: 0vh;
-  flex-direction: row-reverse;
+  flex-direction: column;
   flex-wrap: wrap;
   height: 100vh;
   width: 100vw;
-  background: radial-gradient(ellipse at bottom, #f0e371 0%, #dbe08a 100%);
+  background: $grey_01; 
   overflow: hidden;
 }
 
@@ -54,15 +54,3 @@ h1.splitting {
   margin: auto;
   overflow: hidden;
 }
-
-// .backgroundImage {
-//   width: 100%;
-//   background-position: bottom center;
-//   background-repeat: repeat-y;
-//   background-size: cover;
-// .Pic {
-//   max-width:500;
-//   flex: 1;
-//   border-radius: 50px
-// }
-//}

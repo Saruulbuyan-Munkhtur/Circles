@@ -12,11 +12,11 @@
   margin: 0px 0vw 1.3vh 0vw;
   z-index: 10;
   background-color: rgba(204, 204, 204, 0.0001);
-  //box-shadow: 0 0 20px 0 #000;
+  box-shadow: 0 0 20px 0 #000;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-height: 40px;
+  height: 40px;
   text-transform: capitalize;
   transition: transform 400ms cubic-bezier(.25,.37,.17,.96);
   transition: all 0.3s ease-out;
@@ -29,6 +29,7 @@
     margin-right: 3vw !important;
     align-self: center;
     align-items: center;
+    justify-content: space-between;
     
     li {
       //padding-bottom: 3px;
@@ -41,40 +42,30 @@
           margin: 0 1vw;
         }
   
-        .navbar-link{
-          font-size: 20px !important;
-          align-self: center;
-          padding: 70px, auto; 
-          margin: auto;
-          font-style: italic;
-          @include link-styling($prime_01, $prime_01, $prime_03);
-          transition: all .2s ease-in-out;
-          &:hover {
-            text-decoration: overline;
-            transform: scale(1.2);
-          }
-        }
         
       }
     }
-} 
-
-.navbar-logo {
-  font-size: clamp(16px, 2.25vw, 24px) !important;
-  line-height: 1em;
-  display: flex;
-  padding-left: 5vw;
-  justify-content: center;
-  align-items: center;
-  min-width: 60px;
-  max-width: 200px;
-  // min-height: 30px;
-  // max-height: 35px;
+  } 
+.navbar-link{
+  font-size: 20px !important;
+  align-self: center;
+  padding: 70px, auto; 
+  margin: auto;
+  font-style: italic;
+  @include link-styling($prime_01, $prime_01, $prime_03);
   transition: all .2s ease-in-out;
-  opacity: 100%;
-  @include link-styling($prime_01, $prime_05, #444);
-  
   &:hover {
-    transform: scale(1.1);
+    text-decoration: overline;
+    transform: scale(1.2);
   }
+}
+
+.login{
+  padding-left: 10px;
+  color: $grey_06 !important;
+}
+
+.modal{
+  position: absolute;
+  right: 0;
 }
