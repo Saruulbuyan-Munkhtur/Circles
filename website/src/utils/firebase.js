@@ -55,6 +55,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
+export const useruid = auth.currentUser?.uid;
 
 const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({ prompt: 'consent' });

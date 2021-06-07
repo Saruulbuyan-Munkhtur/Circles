@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { auth, createUserProfileDocument, getFirebase } from '../firebase/firebase';
+import { auth, createUserProfileDocument, getFirebase } from '../utils/firebase';
 import { Button, TextField, makeStyles } from '@material-ui/core';
 import '../scss/main.scss';
 

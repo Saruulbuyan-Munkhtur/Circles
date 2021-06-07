@@ -1,25 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import Layout from "../../components/layout/layout";
+import Table from "../../components/table";
 
 import "../../scss/main.scss";
 
 
 const FriendsPage = () => {
-  
+  const [user, setUser] = useState();
+  const [friendsList, setFriendsList] = useState();
+  const [table, setTable] = useState();
   return (
     <Layout>
       <div>
-        <section className="homePage-landing">
-          <h1>Friends</h1>
-        </section>
-        <section className="homePage-aboutMe">
-        </section>
         <section className="homePage-quotes">
-        </section>
-        <section className="homePage-skills">
-        </section>
-        <section className="homePage-articles">
-          <h1 className="blogList-title">Friends</h1>
+          <h1 className="blogList-title">Users</h1>
+            <Table/>
+          <div className="blogList-body">
+          </div>
         </section>
       </div>
     </Layout>

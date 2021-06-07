@@ -4,7 +4,7 @@ import { Button, Dialog } from '@material-ui/core'
 
 import SignUp from '../sign-up';
 import SignIn from '../sign-in';
-import { signOut } from '../../firebase/auth';
+import { signOut } from '../../utils/signOut';
 import '../../scss/main.scss';
 import { UserContext } from '../../providers/userProvider';
 
@@ -31,8 +31,6 @@ export const Header = () => {
       <header className="navbar-main">
         <ul className="navbar-list">
           <li><NavLink to="/" className="navbar-link">Home</NavLink></li>
-          <li><NavLink to="/friends" className="navbar-link">Friends</NavLink></li>
-          <li><NavLink to="/profile" className="navbar-link">Profile</NavLink></li>
           <li><Button type="button" className="navbar-link login" onClick={handleOpenSignUp}>Sign Up</Button></li>
           <li><Button type="button" className="navbar-link login" onClick={handleOpenSignIn}>Login</Button></li>
         </ul>
@@ -63,7 +61,7 @@ export const Header = () => {
           <li><NavLink to="/" className="navbar-link">Home</NavLink></li>
           <li><NavLink to="/friends" className="navbar-link">Friends</NavLink></li>
           <li><NavLink to="/profile" className="navbar-link">Profile</NavLink></li>
-          <li><Button type="button" className="navbar-link login" onClick={signOut}>Log Out</Button></li>
+          <li><Button type="button" className="navbar-link logout" onClick={signOut}>Log Out</Button></li>
         </ul>
       </header>
     )

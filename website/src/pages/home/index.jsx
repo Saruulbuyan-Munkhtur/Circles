@@ -1,10 +1,42 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
+import { firestore } from '../../utils/firebase';
 import { UserContext } from '../../providers/userProvider.js'
 import Layout from "../../components/layout/layout";
+import User from "../../components/user";
+import Table from "../../components/table";
 import "../../scss/main.scss";
 
 const HomePage = () => {
   const user = useContext(UserContext);
+  const [list, setList] = useState(null);
+  const ref = firestore.collection(`users`);
+
+  useEffect(() => {
+    ref.get().then(snapshot => {
+      if(!snapshot) {
+        setList(l => [])
+      } else {
+        let users = [];
+        snapshot.forEach(user => {
+          users.push({ key: user.id, ...user.data })
+        })
+        setList(l => users);
+      }
+    }).catch(error => {
+      alert(error);
+    })
+  }, []);
+  
+  let listToDisplay;
+  if (list === null) {
+    listToDisplay = (<li>Loading Users...</li>)
+  } else if (list.length === 0) {
+    listToDisplay = (<li>No user found</li>)
+  } else {
+    listToDisplay = list.map(user => {
+      return (<li key={ user.key }><User displayName={user.displayName}/></li>)
+    })
+  }
   
   return (
     <Layout>
@@ -28,6 +60,10 @@ const HomePage = () => {
         </section>
         <section className="homePage-quotes">
           <h1 className="blogList-title">Users</h1>
+            <Table/>
+          <div className="blogList-body">
+            <ul>{ listToDisplay }</ul>
+          </div>
         </section>
       </div>
     </Layout>
