@@ -1,4 +1,4 @@
-import { db, auth, getFirebase, firestore } from '../utils/firebase';
+import { firestore } from '../utils/firebase';
 import { useEffect, useState } from 'react';
 
 export const useDocument = (path) => {

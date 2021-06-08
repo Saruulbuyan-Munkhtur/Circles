@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { auth, createUserProfileDocument, getFirebase } from '../utils/firebase';
+import { auth, firestore, getFirebase } from '../utils/firebase';
 import { Button, TextField, makeStyles } from '@material-ui/core';
 import '../scss/main.scss';
 
@@ -23,10 +23,6 @@ const useStyles = makeStyles(theme => ({
 
 const SignUp = ({ handleClose }) => {
   const firebaseInstance = getFirebase();
-  // const displayName = useInput("");
-  // const email = useInput("");
-  // const password = useInput("");
-  // const confirmPassword = useInput("");
 
   const classes = useStyles();
   const [firstName, setFirstName] = useState('');
@@ -39,10 +35,12 @@ const SignUp = ({ handleClose }) => {
     
     try {
       if (firebaseInstance) {
-        const user = await auth.createUserWithEmailAndPassword(email, password)
+        const user = await auth.createUserWithEmailAndPassword(email, password);
         console.log("user", user)
         alert(`Welcome ${firstName}!`);
-        await createUserProfileDocument(user, { firstName });
+        alert(user.user.uid);
+        // await createUser(user.uid, {firstName, lastName, email});
+        firestore.collection('users').doc(user.user.uid).set({firstName, lastName, email}, { merge: true });
         handleClose();
       }
     } catch (error) {

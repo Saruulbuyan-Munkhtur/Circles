@@ -7,7 +7,7 @@ const Footer = ({ siteTitle }) => (
     <div className="footer-copyright">
       <span>
         {siteTitle} © {new Date().getFullYear()}, 
-        Built with {` `} <a href="https://www.gatsbyjs.org">Gatsby </a>
+        Built with {` `} Firebase, React, Material UI
       </span>
       <br></br>
     </div>

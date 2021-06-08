@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Layout from "../../components/layout/layout";
 import { Select, TextField, MenuItem, InputLabel, Button } from '@material-ui/core';
 import { useDocument } from '../../services/firestore';
-import { useruid } from '../../utils/firebase';
+import firebase from 'firebase/app';
 
 import "../../scss/main.scss";
 
@@ -15,8 +15,17 @@ const ProfilePage = () => {
     billingInformation: '',
     gender: '',
   })
-  const [start, setStart] = useState(false);
+  let useruid = 'CnnFRG9Dw6hPUP4fqBtumvaUMsq1';
+  firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    useruid = user.uid;
+    // alert(useruid);
+  } else {
+    alert("Sign in or Sign up please");
+  }
+});
   const userData = useDocument(`users/${useruid}`);
+  console.log(useruid);
 
   useEffect(() => {
     if (userData.doc != null) {
@@ -72,8 +81,9 @@ const ProfilePage = () => {
             <Button
               color="primary"
               variant="contained"
-              onPress={() => {
-                userData.updateRecord(state);
+              onClick={() => {
+                userData.updateRecord({doc: state});
+                alert("Your information has been updated")
               }} 
             >
               Submit

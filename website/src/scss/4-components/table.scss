@@ -1,6 +1,11 @@
 .table {
   position: relative;
+  height: clamp(300px, 40vh, 700px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: 2em;
+  margin: auto 0;
   border: black 2px;
   background: $grey_06;
 }
