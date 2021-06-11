@@ -28,28 +28,31 @@ const FriendsPage = () => {
     fetchUsers();
   })
   const addToTable = (user) => {
-    setTable({...table, user});
+    setTable(table => [...table, user])
   }
   const removeFromTable = (user) => {
-    setTable(table.filter(user2 => user2.uid !== user.uid));
+    setTable(table => table.filter(user2 => user2.uid !== user.uid));
   }
-  const submitBill = () => {
+  const submitBill = (total, table) => {
+    
 
+    firestore.collection('tables').add({'total': total})
   }
   return (
     <Layout>
       <div className="friends">
         <section className="friends-table">
           <h1 className="friends-title">Users</h1>
-            <Table members={userList} submitBill={submitBill}/>
+            <Table table={table} submitBill={submitBill} removeFromTable={removeFromTable}/>
           <div className="friends-users">
-            {userList.map((user) => {
+            {userList.map((user, idx) => {
               return(
                 <User
                   user={user}
                   addToTable={addToTable}
                   removeFromTable={removeFromTable}
                   added={false}
+                  key={idx}
                 />
               )
             })}

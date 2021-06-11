@@ -4,14 +4,14 @@ import 'firebase/firestore';
 import 'firebase/auth';
 
 const config = {
-  apiKey: "AIzaSyCLtFQRRyH5CATX50ybTCGKbpuq1ArpO7A",
-  authDomain: "achaa-da5fd.firebaseapp.com",
-  databaseURL: "https://achaa-da5fd.firebaseio.com",
-  projectId: "achaa-da5fd",
-  storageBucket: "achaa-da5fd.appspot.com",
-  messagingSenderId: "384605836418",
-  appId: "1:384605836418:web:575dd11bdf81259a6e109b",
-  measurementId: "G-BSHD55VPW9"
+  apiKey: "AIzaSyBYPruf1-a0nQpT6Osyzf3hGGnllrtbKb0",
+  authDomain: "crown-41514.firebaseapp.com",
+  databaseURL: "https://crown-41514.firebaseio.com",
+  projectId: "crown-41514",
+  storageBucket: "crown-41514.appspot.com",
+  messagingSenderId: "710867145146",
+  appId: "1:710867145146:web:b23e274dde17f75e5acd83",
+  measurementId: "G-6LV8R7ZWTH" 
 };
 
 let instance

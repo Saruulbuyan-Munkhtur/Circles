@@ -4,20 +4,22 @@ import User from './user';
 
 import '../scss/main.scss';
 
-const Table = ({ members, submitBill, removeFromTable }) => {
+const Table = ({ table, submitBill, removeFromTable }) => {
   const [total, setTotal] = useState(0);
   return (
     <div className="table">
       <h3>Table Members</h3>
       <ul className="table-members">
-        {members.map((user) => {
-          return(
-            <User 
-              user={user}
-              removeFromTable={removeFromTable}
-            />
-          )
-        })}
+        {table.map((user, idx) => {
+              return(
+                <User
+                  user={user}
+                  removeFromTable={removeFromTable}
+                  added={true}
+                  key={idx}
+                />
+              )
+            })} 
 
       </ul>
       <TextField
@@ -27,7 +29,7 @@ const Table = ({ members, submitBill, removeFromTable }) => {
           value={total}
           onChange={e => setTotal(e.target.value)}
         />
-      <Button variant="contained" color="primary" onClick={submitBill}>Submit</Button>
+      <Button variant="contained" color="primary" onClick={(total, table) => submitBill(total, table)}>Submit</Button>
     </div>
   )
 

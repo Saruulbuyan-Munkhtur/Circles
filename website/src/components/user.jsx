@@ -25,12 +25,14 @@ const User = ({ user, addToTable, removeFromTable, added }) => {
       </Card>
     )
   } else{
-    <Card>
-      <CardContent>
-        <Typography>{user.firstName}...</Typography>
-      </CardContent>
-        <Button variant="filled" color="default" size="small" onClick={removeFunc}>Remove from table</Button>
-      </Card>
+    return(
+      <Card>
+        <CardContent>
+          <Typography>{user.firstName}...</Typography>
+        </CardContent>
+          <Button variant="text" color="default" size="small" onClick={removeFunc}>Remove from table</Button>
+        </Card>
+    )
   }
 }
 
